@@ -1,11 +1,13 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["postgresqlExtensions"]
 }
 
+// URLs de conexão ficam em prisma.config.ts (Prisma 7)
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider   = "postgresql"
+  extensions = [vector]
 }
 
 // ============================================================
@@ -337,6 +339,7 @@ model AiMemory {
   content     String
   category    String
   importance  Int       @default(5)
+  embedding   Unsupported("vector(1536)")?
   expiresAt   DateTime?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
