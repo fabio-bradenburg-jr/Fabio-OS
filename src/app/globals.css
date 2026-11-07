@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
-@import "tailwindcss";
+@import 'tailwindcss';
+/* Tailwind v4 não lê tailwind.config.ts sozinho: liga os tokens Apex Velocity */
+@config '../../tailwind.config.ts';
 
 @theme inline {
   --color-background: var(--background);
@@ -51,10 +53,20 @@ body {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #353534; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #5c403c; }
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #353534;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5c403c;
+}
 
 /* Apex Velocity glass */
 .glass {

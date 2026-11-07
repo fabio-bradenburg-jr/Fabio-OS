@@ -6,13 +6,13 @@ import { join, resolve } from 'path'
 const ROOT = resolve(import.meta.dirname)
 
 const FILES = {
-  '/':               'docs/00-CTO-ARCHITECTURE.md',
-  '/master':         'MASTER_CONTEXT.md',
-  '/design':         'docs/01-DESIGN-BIBLE.md',
-  '/architecture':   'docs/02-ARCHITECTURE.md',
-  '/database':       'docs/03-DATABASE.md',
-  '/ai':             'docs/04-AI-AGENTS.md',
-  '/roadmap':        'docs/05-ROADMAP.md',
+  '/': 'docs/00-CTO-ARCHITECTURE.md',
+  '/master': 'MASTER_CONTEXT.md',
+  '/design': 'docs/01-DESIGN-BIBLE.md',
+  '/architecture': 'docs/02-ARCHITECTURE.md',
+  '/database': 'docs/03-DATABASE.md',
+  '/ai': 'docs/04-AI-AGENTS.md',
+  '/roadmap': 'docs/05-ROADMAP.md',
 }
 
 const NAV = `
@@ -26,9 +26,12 @@ const NAV = `
     '/database': '03 · Database',
     '/ai': '04 · AI Agents',
     '/roadmap': '05 · Roadmap',
-  }).map(([href, label]) =>
-    `<a href="${href}" style="color:#e6bdb8;text-decoration:none;font-size:13px;padding:4px 10px;border-radius:4px;border:1px solid #2a2a2a;font-family:monospace">${label}</a>`
-  ).join('')}
+  })
+    .map(
+      ([href, label]) =>
+        `<a href="${href}" style="color:#e6bdb8;text-decoration:none;font-size:13px;padding:4px 10px;border-radius:4px;border:1px solid #2a2a2a;font-family:monospace">${label}</a>`,
+    )
+    .join('')}
 </nav>`
 
 const HTML = (title, body) => `<!DOCTYPE html>
